@@ -1,9 +1,12 @@
 fun main() {
-    val amount = 200 // стоимость текущей продажи
-    val total = 9_900 // сумма предыдущих продаж
-    val exclusive = true // флаг эксклюзивности
-    val fee = calculateFee(200, 9_900, true)  // exclusive по умолчанию = false
-    println(fee) // 40
+    val fee = calculateFee(200, 9_900, true)
+    println(fee)
+
+    val fee2 = calculateFee(100, 5_700, true)
+    println(fee2)
+
+    val fee3 = calculateFee(7_000, 9_900, true)
+    println(fee3)
 }
 
 fun calculateFee(amount: Int, total: Int, exclusive: Boolean): String {
