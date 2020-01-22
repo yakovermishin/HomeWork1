@@ -1,43 +1,18 @@
 fun main() {
     val index = bodyMassIndex(1.57, 55.0)
-    val verdict = when(index) {
-        1 -> "Выраженный дефицит массы тела"
-        2 -> "Недостаточная (дефицит) масса тела"
-        3 -> "Норма"
-        4 -> "Избыточная масса тела (предожирение)"
-        5 -> "Ожирение"
-        6 -> "Ожирение резкое"
-        else -> "Очень резкое ожирение"
-    }
-    println(verdict)
+    println(index)
 
     val index2 = bodyMassIndex(1.87, 85.0)
-    val verdict2 = when(index2) {
-        1 -> "Выраженный дефицит массы тела"
-        2 -> "Недостаточная (дефицит) масса тела"
-        3 -> "Норма"
-        4 -> "Избыточная масса тела (предожирение)"
-        5 -> "Ожирение"
-        6 -> "Ожирение резкое"
-        else -> "Очень резкое ожирение"
-    }
-    println(verdict2)
+    println(index2)
 
     val index3 = bodyMassIndex(1.96, 125.0)
-    val verdict3 = when(index3) {
-        1 -> "Выраженный дефицит массы тела"
-        2 -> "Недостаточная (дефицит) масса тела"
-        3 -> "Норма"
-        4 -> "Избыточная масса тела (предожирение)"
-        5 -> "Ожирение"
-        6 -> "Ожирение резкое"
-        else -> "Очень резкое ожирение"
-    }
-    println(verdict3)
+    println(index3)
 }
 
-fun bodyMassIndex(height: Double, weight: Double): Int {
+fun bodyMassIndex(height: Double, weight: Double): String {
+    /*
     val index = weight / (height * height)
+    val verdict
     if (index < 16) {
         return 1
     } else if (index < 18.5) {
@@ -53,4 +28,16 @@ fun bodyMassIndex(height: Double, weight: Double): Int {
     } else {
         return 7
     }
+     */
+    val index = weight / (height * height)
+    val verdict = when(index) {
+        in 1.0..16.0 -> "Выраженный дефицит массы тела"
+        in 16.0..18.5 -> "Недостаточная (дефицит) масса тела"
+        in 18.5..24.99 -> "Норма"
+        in 24.99..30.0 -> "Избыточная масса тела (предожирение)"
+        in 30.0..35.0 -> "Ожирение"
+        in 35.0..40.0 -> "Ожирение резкое"
+        else -> "Очень резкое ожирение"
+    }
+    return verdict
 }
